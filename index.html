@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTDOWN.exe</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="scanlines"></div>
+
+    <main class="container">
+
+        <header class="topbar">
+            <span class="logo">COUNTDOWN.exe</span>
+            <span class="online">
+                <span class="led"></span> SYSTEM ONLINE
+            </span>
+        </header>
+
+        <section class="terminal">
+
+            <p class="eyebrow">[ INCOMING EVENT DETECTED ]</p>
+
+            <h1 id="headline">
+                COMING SOON<span class="cursor"></span>
+            </h1>
+
+            <div class="divider"></div>
+
+            <h2 id="eventName">THE NEXT CHAPTER</h2>
+            <p id="eventDate" class="event-date"></p>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days" class="number">00</span>
+                    <span class="unit">DAYS</span>
+                </div>
+
+                <div class="time-box">
+                    <span id="hours" class="number">00</span>
+                    <span class="unit">HOURS</span>
+                </div>
+
+                <div class="time-box">
+                    <span id="minutes" class="number">00</span>
+                    <span class="unit">MINUTES</span>
+                </div>
+
+                <div class="time-box">
+                    <span id="seconds" class="number">00</span>
+                    <span class="unit">SECONDS</span>
+                </div>
+            </div>
+
+            <div class="status">
+                <p>&gt; STATUS: <span id="status">COUNTDOWN ACTIVE</span></p>
+                <p>&gt; MISSION: <span id="mission">WAIT FOR THE DROP</span></p>
+
+                <div class="progress">
+                    <div id="progressFill"></div>
+                </div>
+            </div>
+
+            <details class="settings">
+                <summary>CONFIGURE COUNTDOWN</summary>
+
+                <label for="nameInput">EVENT NAME</label>
+                <input id="nameInput" type="text" value="THE NEXT CHAPTER" maxlength="42">
+
+                <label for="dateInput">TARGET DATE & TIME</label>
+                <input id="dateInput" type="datetime-local">
+
+                <button id="saveBtn" type="button">SAVE CONFIG</button>
+            </details>
+
+        </section>
+
+        <footer class="footer">
+            <span>© 2026 // DIGITAL DREAMS</span>
+            <span>NO SIGNAL. JUST PIXELS.</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
