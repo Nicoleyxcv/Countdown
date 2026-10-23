@@ -1,0 +1,303 @@
+
+:root {
+    --bg: #050805;
+    --green: #39ff14;
+    --green-soft: #a4ff94;
+    --green-dim: #1b7c13;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(20, 80, 15, 0.18),
+            transparent 65%
+        ),
+        var(--bg);
+    color: var(--green);
+    font-family: "VT323", monospace;
+    text-shadow: 0 0 7px rgba(57, 255, 20, 0.35);
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(0, 0, 0, 0.18) 4px
+    );
+}
+
+.container {
+    width: min(900px, 92%);
+    min-height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.topbar,
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    color: var(--green-soft);
+}
+
+.logo {
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+}
+
+.online {
+    font-size: 20px;
+}
+
+.led {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 12px var(--green);
+    animation: blink 1.4s infinite;
+}
+
+.terminal {
+    margin: 40px 0 30px;
+    padding: clamp(20px, 5vw, 50px);
+    border: 1px solid rgba(57, 255, 20, 0.4);
+    background: rgba(5, 18, 7, 0.8);
+    box-shadow:
+        0 0 30px rgba(57, 255, 20, 0.08),
+        inset 0 0 30px rgba(57, 255, 20, 0.025);
+}
+
+.eyebrow {
+    text-align: center;
+    color: var(--green-soft);
+    font-size: 24px;
+}
+
+h1 {
+    font-family: "Press Start 2P", monospace;
+    font-size: clamp(18px, 4vw, 38px);
+    line-height: 1.6;
+    text-align: center;
+    overflow-wrap: anywhere;
+    text-shadow:
+        0 0 8px var(--green),
+        0 0 24px rgba(57, 255, 20, 0.5);
+}
+
+.cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    margin-left: 5px;
+    background: var(--green);
+    vertical-align: -0.12em;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+.divider {
+    height: 4px;
+    margin: 30px auto;
+    max-width: 440px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--green) 0 12px,
+        transparent 12px 17px
+    );
+}
+
+h2 {
+    text-align: center;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: normal;
+    color: white;
+    overflow-wrap: anywhere;
+}
+
+.event-date {
+    text-align: center;
+    color: var(--green-soft);
+    font-size: 23px;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.time-box {
+    padding: 20px 5px;
+    border: 1px solid rgba(57, 255, 20, 0.35);
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.number {
+    font-family: "Press Start 2P", monospace;
+    font-size: clamp(14px, 3vw, 30px);
+    line-height: 1.6;
+    text-shadow: 0 0 12px var(--green);
+    font-variant-numeric: tabular-nums;
+}
+
+.unit {
+    color: var(--green-soft);
+    font-size: 19px;
+}
+
+.status {
+    margin-top: 30px;
+    font-size: 23px;
+    color: var(--green-soft);
+}
+
+.status p {
+    overflow-wrap: anywhere;
+}
+
+.status span {
+    color: white;
+}
+
+.progress {
+    height: 8px;
+    margin-top: 15px;
+    border: 1px solid var(--green-dim);
+    padding: 1px;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    transition: width 0.5s linear;
+}
+
+.settings {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(57, 255, 20, 0.35);
+}
+
+.settings summary {
+    cursor: pointer;
+    font-size: 23px;
+    color: var(--green-soft);
+    margin-bottom: 20px;
+}
+
+.settings label {
+    display: block;
+    margin-top: 15px;
+    font-size: 21px;
+}
+
+.settings input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    background: #020502;
+    border: 1px solid rgba(57, 255, 20, 0.4);
+    color: var(--green);
+    font: 20px "VT323", monospace;
+}
+
+.settings input:focus {
+    outline: 1px solid var(--green);
+}
+
+button {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: #031002;
+    font: 11px "Press Start 2P", monospace;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 0 18px rgba(57, 255, 20, 0.4);
+}
+
+.footer {
+    font-size: 18px;
+    color: #679a60;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        width: 94%;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .terminal {
+        padding: 20px 12px;
+        margin-top: 25px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .time-box {
+        padding: 12px 2px;
+    }
+
+    .number {
+        font-size: clamp(11px, 3.5vw, 18px);
+    }
+
+    .unit {
+        font-size: 15px;
+    }
+
+    .footer {
+        font-size: 15px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
